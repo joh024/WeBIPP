@@ -1,0 +1,25 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.0",
+  "addonList": {
+    "mainmenu": true,
+    "dataviewer": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "text": true,
+    "tutorial": true
+  },
+  "ELIndex": 3
+}END*/
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [34,35]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datSimple\"][\"label\"]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datSimple\"][\"val\"]");
+wbip["frcart"].setattr("gEL1", "y-domain", "[0,10]");
+wbip["frcart"].setattr("gEL1", "y-range", "[1,0.05]");
+wbip["rect"].click("gEL2", d3.select("#gEL1"), [34,62]);
+wbip["rect"].setattr("gEL2", "x", "wbip.data[\"datSimple\"][\"label\"]");
+wbip["rect"].setattr("gEL2", "y", "wbip.data[\"datSimple\"][\"val\"]");
+wbip["rect"].setattr("gEL2", "y", "0");
+wbip["rect"].setattr("gEL2", "height", "wbip.data[\"datSimple\"][\"val\"]");
+wbip["rect"].setattr("gEL2", "y-adj", "1");

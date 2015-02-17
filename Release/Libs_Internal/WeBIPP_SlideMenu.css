@@ -1,0 +1,18 @@
+g.wbip-slidemenu-parent text{
+  text-anchor:start;
+  dominant-baseline:text-before-edge;
+}
+
+g.wbip-slidemenu-parent rect.background{
+  stroke: black;
+  fill: #DEDBDB;
+  opacity: 0.9;
+}
+
+rect.wbip-slidemenu-icon-solid{
+  fill: black;
+}
+
+rect.wbip-slidemenu-icon-transparent{
+  opacity: 0;
+}

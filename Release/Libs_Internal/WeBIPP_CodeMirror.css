@@ -1,0 +1,7 @@
+span.cm-selected{
+  font-weight: bold;
+}
+
+span.cm-matchhighlight{
+  background: gold;
+}

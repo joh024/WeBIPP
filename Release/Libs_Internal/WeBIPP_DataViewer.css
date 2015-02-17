@@ -1,0 +1,8 @@
+#wbip-icon-dataviewer text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+#wbip-icon-dataviewer rect{
+  opacity: 0.1;
+}

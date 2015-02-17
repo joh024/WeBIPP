@@ -1,0 +1,42 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.1",
+  "addonList": {
+    "mainmenu": true,
+    "dataviewer": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "line-d3": true,
+    "line-segment": true,
+    "text": true,
+    "tutorial": true
+  },
+  "dim": [
+    920,
+    720
+  ],
+  "ELIndex": 4
+}END*/
+wbip.data["datMotherTongue.json"] = JSON.parse("{\"lang\":[\"Chinese\",\"English\",\"Spanish\",\"Hindi\",\"Arabic\",\"Bengali\",\"Russia\",\"Portuguese\",\"Japanese\",\"German\",\"French\",\"Panjabi\",\"Javanese\",\"Bihari\",\"Italian\",\"Korean\",\"Telugu\",\"Tamil\",\"Marathi\",\"Vietnamese\"],\"speakers\":[1000,350,250,200,150,150,150,135,120,100,70,70,65,65,60,60,55,55,50,50]}\r\n");
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [89,86]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datMotherTongue.json\"][\"speakers\"]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datMotherTongue.json\"][\"lang\"]");
+wbip["frcart"].setattr("gEL1", "x-domain", "[0,1000]");
+wbip["frcart"].setattr("gEL1", "x-range", "[0,0.95]");
+wbip["frcart"].setattr("gEL1", "x-name", "Number of Speakers (Millions)");
+wbip["frcart"].setattr("gEL1", "y-name", "");
+wbip["frcart"].setattr("gEL1", "y-range", "[0, 1]");
+wbip["frcart"].setattr("gEL1", "axes", "[1,2,3]");
+wbip["frcart"].setattr("gEL1", "transform", "[140,80]");
+wbip["line-segment"].click("gEL2", d3.select("#gEL1"), [57,57]);
+wbip["line-segment"].setattr("gEL2", "x1", "0");
+wbip["line-segment"].setattr("gEL2", "x2", "wbip.data[\"datMotherTongue.json\"][\"speakers\"]");
+wbip["line-segment"].setattr("gEL2", "y1", "wbip.data[\"datMotherTongue.json\"][\"lang\"]");
+wbip["line-segment"].setattr("gEL2", "y2", "wbip.data[\"datMotherTongue.json\"][\"lang\"]");
+wbip["line-segment"].setattr("gEL2", "stroke-dasharray", "1 4");
+wbip["circle"].click("gEL3", d3.select("#gEL1"), [224,167]);
+wbip["circle"].setattr("gEL3", "cx", "wbip.data[\"datMotherTongue.json\"][\"speakers\"]");
+wbip["circle"].setattr("gEL3", "cy", "wbip.data[\"datMotherTongue.json\"][\"lang\"]");
+wbip["circle"].setattr("gEL3", "r", "3");
+wbip["circle"].setattr("gEL3", "fill", "black");

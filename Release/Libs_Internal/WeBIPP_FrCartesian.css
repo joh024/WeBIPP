@@ -1,0 +1,27 @@
+#wbip-icon-frcart line{
+  stroke: black;
+}
+
+#wbip-icon-frcart rect{
+  opacity: 0.1;
+}
+
+g.wbip-obj-frcart rect.background{
+  stroke: black;
+  fill: white;
+}
+
+.wbip-axis .domain{
+  display: none;
+}
+
+.wbip-axis line{
+  shape-rendering: crispEdges;
+  stroke: black;
+}
+
+.wbip-axis-label text{
+  text-anchor:middle;
+  dominant-baseline:central;
+  font-weight:bold;
+}

@@ -1,0 +1,12 @@
+.wbip-attrintf text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+.wbip-attrintf-name rect{
+  fill: #BEBECE;
+}
+
+.wbip-attrintf-value rect{
+  fill: #CECEDE;
+}

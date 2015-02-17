@@ -1,0 +1,19 @@
+#gGraph > rect.background{
+  fill: #EBEBEB;
+}
+
+#gMenuPri > rect.background{
+  fill: #BEBECE;
+}
+
+#gMenuSec > rect.background{
+  fill: #CEBEBE;
+}
+
+#gMenuTer > rect.background{
+  fill: #CECECE;
+}
+
+#gMenuTab > rect.background{
+  fill: #BECEBE;
+}

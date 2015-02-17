@@ -1,0 +1,77 @@
+rect.wbip-BBox{
+  fill:none;
+  stroke:black;
+  stroke-dasharray:4;
+}
+
+circle.wbip-attention{
+  shape-rendering:optimizeSpeed;
+  fill:none;
+  stroke:black;
+  stroke-width:3;
+}
+
+g.wbip-resize > path{
+  stroke:black;
+  stroke-dasharray:5;
+}
+
+rect.wbip-resize-text-bg{
+  fill:white;
+  stroke:black;
+}
+
+text.wbip-resize-text{
+  text-anchor:end;
+  dominant-baseline:text-after-edge;
+}
+
+rect.wbip-button-bg{
+  fill: #F0F0F0;
+}
+
+g.wbip-button:hover rect.wbip-button-bg{
+  fill: #BEEBBE;
+}
+
+g.wbip-button text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+.wbip-helperline .domain{
+  shape-rendering:crispEdges;
+}
+
+.wbip-helperline line{
+  shape-rendering:crispEdges;
+  stroke:black;
+  stroke-width:5;
+}
+
+.wbip-helperline line:hover{
+  stroke:green;
+  stroke-width:10;
+}
+
+.wbip-helperline circle{
+  fill:green;
+  pointer-events:none;
+}
+
+.wbip-helperline-ffw-type rect{
+  fill: #CECECE;
+}
+.wbip-helperline-ffw-type text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+.wbip-helperline-ffw-set rect{
+  fill: #CEEECE;
+}
+.wbip-helperline-ffw-set text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+

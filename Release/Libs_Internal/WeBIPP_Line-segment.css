@@ -1,0 +1,11 @@
+#wbip-icon-line-segment line{
+  stroke: black;
+}
+
+#wbip-icon-line-segment rect{
+  opacity: 0.1;
+}
+
+.wbip-obj-line-segment line{
+  stroke: black;
+}

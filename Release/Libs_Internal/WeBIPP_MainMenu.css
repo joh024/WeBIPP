@@ -1,0 +1,9 @@
+#wbip-icon-mainmenu text{
+  /* font-size:11; */
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+#wbip-icon-mainmenu rect{
+  opacity: 0.1;
+}

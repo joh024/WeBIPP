@@ -1,0 +1,75 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.1",
+  "addonList": {
+    "mainmenu": true,
+    "dataviewer": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "line-d3": true,
+    "line-segment": true,
+    "text": true,
+    "tutorial": true
+  },
+  "dim": [
+    1600,
+    860
+  ],
+  "ELIndex": 8
+}END*/
+wbip.data["datMinard_temps.json"] = JSON.parse("{\"long\":[37.6,36,33.2,32,29.2,28.5,27.2,26.7,25.3],\"temp\":[0,0,-9,-21,-11,-20,-24,-30,-26],\"month\":[\"Oct\",\"Oct\",\"Nov\",\"Nov\",\"Nov\",\"Nov\",\"Dec\",\"Dec\",\"Dec\"],\"day\":[18,24,9,14,24,28,1,6,7],\"date\":[\"Oct 18\",\"Oct 24\",\"Nov 9\",\"Nov 14\",\"Nov 24\",\"Nov 28\",\"Dec 1\",\"Dec 6\",\"Dec 7\"]}\r\n");
+wbip.data["datMinard_cities.json"] = JSON.parse("{\"long\":[24,25.3,26.4,26.8,27.7,27.6,28.5,28.7,29.2,30.2,30.4,30.4,32,33.2,34.3,34.4,36,37.6,36.6,36.5],\"lat\":[55,54.7,54.4,54.3,55.2,53.9,54.3,55.5,54.4,55.3,54.5,53.9,54.8,54.9,55.2,55.5,55.5,55.8,55.3,55],\"city\":[\"Kowno\",\"Wilna\",\"Smorgoni\",\"Moiodexno\",\"Gloubokoe\",\"Minsk\",\"Studienska\",\"Polotzk\",\"Bobr\",\"Witebsk\",\"Orscha\",\"Mohilow\",\"Smolensk\",\"Dorogobouge\",\"Wixma\",\"Chjat\",\"Mojaisk\",\"Moscou\",\"Tarantino\",\"Malo-Jarosewii\"]}\r\n");
+wbip.data["datMinard_troops_1_A.json"] = JSON.parse("{\"long\":[24,24.5,25.5,26,27,28,28.5,29,30,30.3,32,33.2,34.4,35.5,36,37.6],\"lat\":[54.9,55,54.5,54.7,54.8,54.9,55,55.1,55.2,55.3,54.8,54.9,55.5,55.4,55.5,55.8],\"survivors\":[340000,340000,340000,320000,300000,280000,240000,210000,180000,175000,145000,140000,127100,100000,100000,100000],\"direction\":[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],\"group\":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}\r\n");
+wbip.data["datMinard_troops_1_R.json"] = JSON.parse("{\"long\":[37.7,37.5,37,36.8,35.4,34.3,33.3,32,30.4,29.2,28.5,28.3,27.5,26.8,26.4,25,24.4,24.2,24.1],\"lat\":[55.7,55.7,55,55,55.3,55.2,54.8,54.6,54.4,54.3,54.2,54.3,54.5,54.3,54.4,54.4,54.4,54.4,54.4],\"survivors\":[100000,98000,97000,96000,87000,55000,37000,24000,20000,20000,20000,20000,20000,12000,14000,8000,4000,4000,4000],\"direction\":[\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\",\"R\"],\"group\":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]}\r\n");
+wbip.data["datMinard_troops_2_A.json"] = JSON.parse("{\"long\":[24,24.5,25.5,26.6,27.4,28.7],\"lat\":[55.1,55.2,54.7,55.7,55.6,55.5],\"survivors\":[60000,60000,60000,40000,33000,33000],\"direction\":[\"A\",\"A\",\"A\",\"A\",\"A\",\"A\"],\"group\":[2,2,2,2,2,2]}\r\n");
+wbip.data["datMinard_troops_2_R.json"] = JSON.parse("{\"long\":[28.7,29.2,28.5,28.3],\"lat\":[55.5,54.2,54.1,54.2],\"survivors\":[33000,30000,30000,28000],\"direction\":[\"R\",\"R\",\"R\",\"R\"],\"group\":[2,2,2,2]}\r\n");
+wbip.data["datMinard_troops_3_A.json"] = JSON.parse("{\"long\":[24,24.5,24.6],\"lat\":[55.2,55.3,55.8],\"survivors\":[22000,22000,6000],\"direction\":[\"A\",\"A\",\"A\"],\"group\":[3,3,3]}\r\n");
+wbip.data["datMinard_troops_3_R.json"] = JSON.parse("{\"long\":[24.6,24.2,24.1],\"lat\":[55.8,54.4,54.4],\"survivors\":[6000,6000,6000],\"direction\":[\"R\",\"R\",\"R\"],\"group\":[3,3,3]}\r\n");
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [45,96]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datMinard_cities.json\"][\"long\"]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datMinard_cities.json\"][\"lat\"]");
+wbip["frcart"].setattr("gEL1", "transform", "[90,20]");
+wbip["frcart"].setattr("gEL1", "dim", "[1310,500]");
+// MARKER TroopLineStart
+wbip["line"].click("gEL2", d3.select("#gEL1"), [87,47]);
+wbip["line"].setattr("gEL2", "x", "wbip.data[\"datMinard_troops_1_A.json\"][\"long\"]");
+wbip["line"].setattr("gEL2", "y", "wbip.data[\"datMinard_troops_1_A.json\"][\"lat\"]");
+wbip["line"].setattr("gEL2", "stroke-width", "expr:(wbip.data[\"datMinard_troops_1_A.json\"][\"survivors\"][d]) * 0.0002");
+wbip["line"].setattr("gEL2", "stroke-linecap", "round");
+wbip["line"].setattr("gEL2", "stroke", "#E5CBAA");
+// MARKER TroopLineEnd
+wbip.fise.new("TroopLine", {"marker":["TroopLineStart","TroopLineEnd"]}, [{"match":"1_A","name":"datasub","type":"none"},{"match":"#E5CBAA","name":"colour","type":"none"}]);
+wbip.vars.fise["TroopLine"]({"datasub":"2_A"});
+wbip.vars.fise["TroopLine"]({"datasub":"3_A"});
+wbip.vars.fise["TroopLine"]({"datasub":"1_R","colour":"grey"});
+wbip.vars.fise["TroopLine"]({"datasub":"2_R","colour":"grey"});
+wbip.vars.fise["TroopLine"]({"datasub":"3_R","colour":"grey"});
+wbip["circle"].click("gEL3", d3.select("#gEL1"), [54,70]);
+wbip["circle"].setattr("gEL3", "cx", "wbip.data[\"datMinard_cities.json\"][\"long\"]");
+wbip["circle"].setattr("gEL3", "cy", "wbip.data[\"datMinard_cities.json\"][\"lat\"]");
+wbip["circle"].setattr("gEL3", "r", "5");
+wbip["circle"].setattr("gEL3", "fill", "black");
+wbip["text"].click("gEL4", d3.select("#gEL1"), [154,88]);
+wbip["text"].setattr("gEL4", "x", "wbip.data[\"datMinard_cities.json\"][\"long\"]");
+wbip["text"].setattr("gEL4", "y", "wbip.data[\"datMinard_cities.json\"][\"lat\"]");
+wbip["text"].setattr("gEL4", "text", "wbip.data[\"datMinard_cities.json\"][\"city\"]");
+wbip["text"].setattr("gEL4", "text-anchor", "start");
+wbip["text"].setattr("gEL4", "dominant-baseline", "text-before-edge");
+wbip["text"].setattr("gEL4", "font-weight", "bold");
+wbip["text"].setattr("gEL4", "font-variant", "small-caps");
+wbip["frcart"].click("gEL5", d3.select("#gGraph"), [189,573]);
+wbip["frcart"].setattr("gEL5", "transform", "[90,590]");
+wbip["frcart"].setattr("gEL5", "dim", "[1310,120]");
+wbip["frcart"].setattr("gEL5", "x", "wbip.data[\"datMinard_cities.json\"][\"long\"]");
+wbip["frcart"].setattr("gEL5", "y", "wbip.data[\"datMinard_temps.json\"][\"temp\"]");
+wbip["frcart"].setattr("gEL5", "y-domain", "[-40,0]");
+wbip["frcart"].setattr("gEL5", "axes-opts", "{\"2\":{\"ticks\":4}}");
+wbip["line"].click("gEL6", d3.select("#gEL5"), [137,36]);
+wbip["line"].setattr("gEL6", "x", "wbip.data[\"datMinard_temps.json\"][\"long\"]");
+wbip["line"].setattr("gEL6", "y", "wbip.data[\"datMinard_temps.json\"][\"temp\"]");
+wbip["text"].click("gEL7", d3.select("#gEL5"), [194,60]);
+wbip["text"].setattr("gEL7", "x", "wbip.data[\"datMinard_temps.json\"][\"long\"]");
+wbip["text"].setattr("gEL7", "y", "wbip.data[\"datMinard_temps.json\"][\"temp\"]");
+wbip["text"].setattr("gEL7", "text", "wbip.data[\"datMinard_temps.json\"][\"date\"]");
+wbip["text"].setattr("gEL7", "dominant-baseline", "text-before-edge");

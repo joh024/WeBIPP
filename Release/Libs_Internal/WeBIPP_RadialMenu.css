@@ -1,0 +1,34 @@
+g.wbip-radialmenu-diamond polygon{
+  stroke: black;
+  fill: #DEDBDB;
+}
+
+g.wbip-radialmenu-parent text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+g.wbip-radialmenu-backbtn polygon{
+  fill: #CE8B8B;
+}
+
+g.wbip-radialmenu-backbtn polygon:hover{
+  fill: #FEDBDB;
+}
+
+g.wbip-radialmenu-opts-normal polygon{
+  fill: #8BCE8B;
+}
+
+g.wbip-radialmenu-opts-normal:hover polygon{
+  fill: #DBFEDB;
+}
+
+g.wbip-radialmenu-opts-special polygon{
+  fill: #8B8BCE;
+}
+
+g.wbip-radialmenu-opts-special:hover polygon{
+  fill: #DBDBFE;
+}
+

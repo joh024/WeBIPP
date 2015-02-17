@@ -1,0 +1,32 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.1",
+  "addonList": {
+    "mainmenu": true,
+    "dataviewer": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "line-d3": true,
+    "text": true,
+    "tutorial": true
+  },
+  "ELIndex": 4
+}END*/
+wbip.data["datSimple.json"] = JSON.parse("{\"val\":[1,2,3,4,5,6,7,8,9,10],\"label\":[\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"I\",\"J\"],\"valsum\":[0,1,3,6,10,15,21,28,36,45]}\n");
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [57,118]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datSimple.json\"][\"val\"]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datSimple.json\"][\"valsum\"]");
+wbip["rect"].click("gEL2", d3.select("#gEL1"), [64,135]);
+wbip["rect"].setattr("gEL2", "x", "wbip.data[\"datSimple.json\"][\"val\"]");
+wbip["rect"].setattr("gEL2", "height", "wbip.data[\"datSimple.json\"][\"valsum\"]");
+wbip["rect"].setattr("gEL2", "y", "0");
+wbip["rect"].setattr("gEL2", "y-useScale", "true");
+wbip["rect"].setattr("gEL2", "y-adj", "1");
+wbip["line"].click("gEL3", d3.select("#gEL1"), [67,171]);
+wbip["line"].setattr("gEL3", "x", "wbip.data[\"datSimple.json\"][\"val\"]");
+wbip["line"].setattr("gEL3", "y", "wbip.data[\"datSimple.json\"][\"valsum\"]");
+wbip.fise.new("bartest", {"line":[4,9]}, [{"match":"valsum","name":"height","type":"none"}]);
+wbip.vars.fise["bartest"]({"height":"val"});
+wbip["rect"].setattr("gEL2b", "fill", "wbip.hcl(100)");
+wbip["rect"].setattr("gEL2b", "opacity", "0.5");

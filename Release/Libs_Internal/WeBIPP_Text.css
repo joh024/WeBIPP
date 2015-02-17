@@ -1,0 +1,14 @@
+#wbip-icon-text text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+#wbip-icon-text rect{
+  opacity: 0.1;
+}
+
+.wbip-obj-text text{
+  font-family:sans-serif;
+  text-anchor:middle;
+  dominant-baseline:central;
+}

@@ -1,0 +1,12 @@
+#wbip-icon-line polyline{
+  stroke: black;
+  fill: none;
+}
+
+#wbip-icon-line rect{
+  opacity: 0.1;
+}
+
+.wbip-obj-line line{
+  stroke: black;
+}

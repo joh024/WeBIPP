@@ -1,0 +1,97 @@
+<html>
+<head>
+  <title>WeBIPP</title>
+  <meta lang="en" charset="utf-8">
+  <!-- External Libraries -->
+    <!-- D3 -->
+    <script src="Libs_External/D3js/d3.js"></script>
+    <!-- CodeMirror -->
+    <script src="Libs_External/CodeMirror/codemirror.js"></script>
+    <link rel="stylesheet" href="Libs_External/CodeMirror/codemirror.css">
+    <script src="Libs_External/CodeMirror/searchcursor.js"></script>
+    <script src="Libs_External/CodeMirror/matchbrackets.js"></script>
+    <script src="Libs_External/CodeMirror/match-highlighter.js"></script>
+    <script src="Libs_External/CodeMirror/javascript.js"></script>
+    <!-- jQuery -->
+    <script src="Libs_External/jQuery/jquery-1.7.1.min.js"></script>
+    <!-- jQuery-Terminal -->
+    <script src="Libs_External/jQuery-Terminal/jquery.terminal-min.js"></script>
+    <link rel="stylesheet" href="Libs_External/jQuery-Terminal/jquery.terminal.css">
+    <!-- jQuery-UI -->
+    <script src="Libs_External/jQuery-UI/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="Libs_External/jQuery-UI/jquery-ui.min.css">
+  <!-- Internal Libraries -->
+    <script src="Libs_Internal/WeBIPP_Core.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Core.css" />
+    <!-- Various Utils -->
+    <script src="Libs_Internal/WeBIPP_Utils.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Utils.css" />
+    <script src="Libs_Internal/WeBIPP_Frills.js"></script>
+    <script src="Libs_Internal/WeBIPP_FileReader.js"></script>
+    <script src="Libs_Internal/WeBIPP_SlideMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_SlideMenu.css" />
+    <script src="Libs_Internal/WeBIPP_RadialMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_RadialMenu.css" />
+    <script src="Libs_Internal/WeBIPP_HCL.js"></script>
+    <script src="Libs_Internal/WeBIPP_Fise.js"></script>
+    <script src="Libs_Internal/WeBIPP_Message.js"></script>
+    <script src="Libs_Internal/WeBIPP_Icons-jui.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Icons-jui.css" />
+    <!-- ffw -->
+    <script src="Libs_Internal/WeBIPP_FreeFormWindow.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_FreeFormWindow.css" />
+    <script src="Libs_Internal/WeBIPP_CodeMirror.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_CodeMirror.css" />
+    <script src="Libs_Internal/WeBIPP_Terminal.js"></script>
+    <script src="Libs_Internal/WeBIPP_BtnInterface.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_BtnInterface.css" />
+    <script src="Libs_Internal/WeBIPP_Tutorial.js"></script>
+    <!-- Base Layout -->
+    <script src="Libs_Internal/WeBIPP_Layout.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Layout.css" />
+    <!-- Tab -->
+    <script src="Libs_Internal/WeBIPP_MenuObj.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_MenuObj.css" />
+    <!-- Tertiary -->
+    <script src="Libs_Internal/WeBIPP_MainMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_MainMenu.css" />
+    <script src="Libs_Internal/WeBIPP_DataViewer.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_DataViewer.css" />
+    <script src="Libs_Internal/WeBIPP_QMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_QMenu.css" />
+    <!-- Primary -->
+    <script src="Libs_Internal/WeBIPP_FrCartesian.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_FrCartesian.css" />
+    <script src="Libs_Internal/WeBIPP_Rect.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Rect.css" />
+    <script src="Libs_Internal/WeBIPP_Circle.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Circle.css" />
+    <script src="Libs_Internal/WeBIPP_Line.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Line.css" />
+    <script src="Libs_Internal/WeBIPP_Line-d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Line-d3.css" />
+    <script src="Libs_Internal/WeBIPP_Line-segment.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Line-segment.css" />
+    <script src="Libs_Internal/WeBIPP_Text.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Text.css" />
+    <!-- Interfaces -->
+    <script src="Libs_Internal/WeBIPP_ValInterface.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_ValInterface.css" />
+    <script src="Libs_Internal/WeBIPP_AttrInterface.js"></script>
+    <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_AttrInterface.css" />
+</head>
+<body bgcolor="#B8D8F8" onload="wbip.init()">
+
+<div id="load-div" class="invisible">
+  <input type="file" onchange="wbip.filereader.wbip(this.files[0])">
+</div>
+
+<div id="read-div" class="invisible">
+  <input type="file" onchange="wbip.filereader.JSONmult(this.files)" multiple=true>
+</div>
+
+<div id="main-div">
+  <svg id="main-svg"></svg>
+</div>
+</body>
+</html>

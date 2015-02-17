@@ -1,0 +1,28 @@
+div.invisible{
+  display: none;
+}
+
+.unselectable{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+rect{
+  shape-rendering: crispEdges;
+}
+
+g.selBG rect{
+  fill: #BEEBBE;
+}
+
+svg text{
+  font-family: monospace;
+  font-size: 12pt;
+}
+
+.wbip-fg{
+  opacity: 0;
+}

@@ -1,0 +1,25 @@
+#wbip-icon-qmenu text{
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+
+#wbip-icon-qmenu rect{
+  opacity: 0;
+}
+
+g.wbip-radialmenu-opts-r text{
+  text-anchor:start;
+}
+
+g.wbip-radialmenu-opts-l text{
+  text-anchor:end;
+}
+
+g.wbip-icon-qmenu rect.wbip-icon-bg{
+  opacity: 0.1;
+}
+
+g.wbip-icon-qmenu-active rect.wbip-icon-bg{
+  opacity: 1;
+  fill: #BEEBBE;
+}

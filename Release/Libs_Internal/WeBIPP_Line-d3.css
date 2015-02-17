@@ -1,0 +1,19 @@
+#wbip-icon-line-d3 text{
+  font-size:11;
+  text-anchor:end;
+  dominant-baseline:text-after-edge;
+}
+
+#wbip-icon-line-d3 polyline{
+  stroke: black;
+  fill: none;
+}
+
+#wbip-icon-line-d3 rect{
+  opacity: 0.1;
+}
+
+.wbip-obj-line-d3 path{
+  stroke: black;
+  fill: none;
+}

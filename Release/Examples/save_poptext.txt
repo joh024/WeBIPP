@@ -1,0 +1,34 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.0",
+  "addonList": {
+    "mainmenu": true,
+    "dataviewer": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "text": true
+  },
+  "ELIndex": 5
+}END*/
+wbip.data["datnzpop_2006.json"] = JSON.parse("{\"AgeGroup\":[\"0-4\",\"5-9\",\"10-14\",\"15-19\",\"20-24\",\"25-29\",\"30-34\",\"35-39\",\"40-44\",\"45-49\",\"50-54\",\"55-59\",\"60-64\",\"65-69\",\"70-74\",\"75-79\",\"80-84\",\"85-89\",\"90+\"],\"Male\":[146.21,149.23,159.52,159.4,145.85,126.77,136.32,149.14,155.94,149.12,129.93,120.08,91.9,75.62,57.38,47.57,30.18,13.16,5.02],\"Female\":[139.79,142.65,150.92,154.16,145.33,133.6,149.7,163.43,166.54,156.04,133.72,122.93,94.76,79.91,62.79,56.03,44,25.92,14.04]}\r\n");
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [68,93]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datnzpop_2006.json\"][\"Male\"]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datnzpop_2006.json\"][\"Female\"]");
+wbip["frcart"].setattr("gEL1", "x-domain", "[0,175]");
+wbip["frcart"].setattr("gEL1", "y-domain", "[0,175]");
+wbip["text"].click("gEL2", d3.select("#gEL1"), [86,67]);
+wbip["text"].setattr("gEL2", "x", "wbip.data[\"datnzpop_2006.json\"][\"Male\"]");
+wbip["text"].setattr("gEL2", "y", "wbip.data[\"datnzpop_2006.json\"][\"Female\"]");
+wbip["text"].setattr("gEL2", "text", "wbip.data[\"datnzpop_2006.json\"][\"AgeGroup\"]");
+wbip["text"].setattr("gEL2", "font-family", "monospace");
+wbip["line"].click("gEL3", d3.select("#gEL1"), [98,268]);
+wbip["line"].setattr("gEL3", "x", "[0,175]");
+wbip["line"].setattr("gEL3", "y", "[0,175]");
+wbip["circle"].click("gEL4", d3.select("#gEL1"), [88,136]);
+wbip["circle"].setattr("gEL4", "cx", "wbip.data[\"datnzpop_2006.json\"][\"Male\"]");
+wbip["circle"].setattr("gEL4", "cy", "wbip.data[\"datnzpop_2006.json\"][\"Female\"]");
+wbip["circle"].setattr("gEL4", "fill", "none");
+wbip["circle"].setattr("gEL4", "r", "25");
+wbip["circle"].setattr("gEL4", "fill", "lightblue");
+wbip["circle"].setattr("gEL4", "opacity", "0.3");

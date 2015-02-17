@@ -1,0 +1,77 @@
+/*WBIP SAVE HEADER{
+  "version": "0.10.4",
+  "addonList": {
+    "frills": true,
+    "message": true,
+    "mainmenu": true,
+    "dataviewer": true,
+    "qmenu": true,
+    "frcart": true,
+    "rect": true,
+    "circle": true,
+    "line": true,
+    "line-d3": true,
+    "line-segment": true,
+    "text": true
+  },
+  "dim": [
+    1600,
+    720
+  ]
+}END*/
+wbip.data["datnzpop_2006"] = JSON.parse("{\"AgeGroup\":[\"0-4\",\"5-9\",\"10-14\",\"15-19\",\"20-24\",\"25-29\",\"30-34\",\"35-39\",\"40-44\",\"45-49\",\"50-54\",\"55-59\",\"60-64\",\"65-69\",\"70-74\",\"75-79\",\"80-84\",\"85-89\",\"90+\"],\"Male\":[146.21,149.23,159.52,159.4,145.85,126.77,136.32,149.14,155.94,149.12,129.93,120.08,91.9,75.62,57.38,47.57,30.18,13.16,5.02],\"Female\":[139.79,142.65,150.92,154.16,145.33,133.6,149.7,163.43,166.54,156.04,133.72,122.93,94.76,79.91,62.79,56.03,44,25.92,14.04]}\r\n");
+// MARKER PopPyrMale Start
+wbip["frcart"].click("gEL1", d3.select("#gGraph"), [65,33]);
+wbip["frcart"].setattr("gEL1", "x", "wbip.data[\"datnzpop_2006\"][\"Female\"]");
+wbip["frcart"].setattr("gEL1", "x-name", "");
+wbip["frcart"].setattr("gEL1", "x-domain", "[0,170]");
+wbip["frcart"].setattr("gEL1", "x-range", "[1,0.01]");
+wbip["frcart"].setattr("gEL1", "y", "wbip.data[\"datnzpop_2006\"][\"AgeGroup\"]");
+wbip["frcart"].setattr("gEL1", "y-range", "[1,0]");
+wbip["frcart"].setattr("gEL1", "axes", "[1]");
+wbip["frcart"].setattr("gEL1", "axes-opts", "{\"1\":{\"ticks\":4}}");
+wbip["frcart"].setattr("gEL1", "dim", [(wbip.getdim("gGraph")[0] - 100)/2, wbip.getdim("gGraph")[1] - 80 * 2]);
+wbip["frcart"].setattr("gEL1", "transform", "[20,80]");
+wbip["line-segment"].click("gEL2", d3.select("#gEL1"), [239,97]);
+wbip["line-segment"].setattr("gEL2", "x1", "[50, 100, 150]");
+wbip["line-segment"].setattr("gEL2", "x2", "[50, 100, 150]");
+wbip["line-segment"].setattr("gEL2", "y1", "0");
+wbip["line-segment"].setattr("gEL2", "y2-useScale", "false");
+wbip["line-segment"].setattr("gEL2", "y2", "expr:curDim[1]");
+wbip["line-segment"].setattr("gEL2", "stroke-dasharray", "1 4");
+wbip["rect"].click("gEL3", d3.select("#gEL1"), [118,62]);
+wbip["rect"].setattr("gEL3", "x", "0");
+wbip["rect"].setattr("gEL3", "x-useScale", "true");
+wbip["rect"].setattr("gEL3", "x-adj", "1");
+wbip["rect"].setattr("gEL3", "y", "wbip.data[\"datnzpop_2006\"][\"AgeGroup\"]");
+wbip["rect"].setattr("gEL3", "width", "wbip.data[\"datnzpop_2006\"][\"Male\"]");
+wbip["rect"].setattr("gEL3", "height", "1");
+wbip["rect"].setattr("gEL3", "height-useScale", "true");
+wbip["rect"].setattr("gEL3", "fill", "lightblue");
+wbip["text"].click("gEL4", d3.select("#gEL1"), [181,34]);
+wbip["text"].setattr("gEL4", "x", "170");
+wbip["text"].setattr("gEL4", "x-useScale", "true");
+wbip["text"].setattr("gEL4", "y", "-20");
+wbip["text"].setattr("gEL4", "text", "Male");
+wbip["text"].setattr("gEL4", "text-anchor", "start");
+wbip["text"].setattr("gEL4", "font-size", "20");
+// MARKER PopPyrMale End
+wbip.fise.new("PopPyr", {"marker":["PopPyrMale Start","PopPyrMale End"]}, [{"match":"[1,0.01]","name":"x-range","type":"none"},{"match":"[20,80]","name":"transform","type":"none"},{"match":"\"x-adj\", \"1\"","name":"x-adj","type":"none"},{"match":"Male","name":"data","type":"none"},{"match":"lightblue","name":"colour","type":"none"},{"match":"start","name":"text-align","type":"none"}]);
+wbip.vars.fise["PopPyr"]({"x-range":"[0, 0.99]","transform":"[(wbip.getdim(\\\"gGraph\\\")[0] - 100)/2 + 80, 80]","x-adj":"\"x-adj\", \"0\"","data":"Female","colour":"pink","text-align":"end"});
+wbip["text"].click("gEL5", d3.select("#gEL1b"), [44.5,143]);
+wbip["text"].setattr("gEL5", "x", "-30");
+wbip["text"].setattr("gEL5", "y", "wbip.data[\"datnzpop_2006\"][\"AgeGroup\"]");
+wbip["text"].setattr("gEL5", "text", "wbip.data[\"datnzpop_2006\"][\"AgeGroup\"]");
+wbip["text"].click("gEL6", d3.select("#gEL1b"), [44.5,68]);
+wbip["text"].setattr("gEL6", "x", "-30");
+wbip["text"].setattr("gEL6", "y", "-45");
+wbip["text"].setattr("gEL6", "text", "New Zealand Population, 2006");
+wbip["text"].setattr("gEL6", "font-size", "30");
+wbip["text"].setattr("gEL6", "font-weight", "bold");
+wbip["text"].setattr("gEL6", "font-family", "serif");
+wbip["text"].click("gEL7", d3.select("#gEL1b"), [84.5,446]);
+wbip["text"].setattr("gEL7", "x", "-30");
+wbip["text"].setattr("gEL7", "y-useScale", "false");
+wbip["text"].setattr("gEL7", "y", "expr:curDim[1] + 55");
+wbip["text"].setattr("gEL7", "text", "Population Size in Thousands");
+wbip["text"].setattr("gEL7", "font-size", "20");
