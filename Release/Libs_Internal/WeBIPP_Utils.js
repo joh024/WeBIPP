@@ -34,10 +34,41 @@ wbip.utils = function(){
   obj.names =
     // function for obtaining the equivalent to
     //   "names(vector)" in R
-    function(obj){
+    function(vec){
       var names = new Array;
-      for(var curname in obj){names.push(curname);}
+      for(var curname in vec){names.push(curname);}
       return names;
+    };
+  
+  obj.nrow =
+    // for each 'column' of the data
+    // compute nrow
+    // return a single number if all nrow the same
+    // else return an array of all the nrows
+    function(dat){
+      var nrows = [];
+      for(var name in dat){
+        nrows.push(dat[name].length);
+      }
+      
+      var firstn = nrows[0];
+      for(var i = 1; i < nrows.length; i++){
+        if(nrows[i] !== firstn){
+          return nrows;
+        }
+      }
+      
+      return firstn;
+    };
+  
+  obj.getrow =
+    // get the nth row of dat
+    function(dat, n){
+      var row = [];
+      for(var name in dat){
+        row.push(dat[name][n]);
+      }
+      return row;
     };
   
   obj.maxnchar =

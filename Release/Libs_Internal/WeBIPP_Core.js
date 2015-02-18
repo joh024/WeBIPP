@@ -1,5 +1,5 @@
 wbip = function(){
-  var wbip = {version: "0.11.0", vars: {}, IDvars: {}, addonList: {}};
+  var wbip = {version: "0.11.1", vars: {}, IDvars: {}, addonList: {}};
   
   wbip.defarg =
     // Function to make it easier to set default argument values
@@ -467,8 +467,6 @@ wbip = function(){
   wbip.data = {};
   wbip.datanew =
     function(name, dat){
-      // Remove .json extension to shorten name a bit
-      var name = name.replace(/\.json$/, "");
       var outcode = "wbip.data[" + JSON.stringify(name) +
         "] = JSON.parse(" + JSON.stringify(dat) + ");";
       wbip.outcode.write(outcode, "high");

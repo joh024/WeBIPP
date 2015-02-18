@@ -2,9 +2,8 @@ wbip.filereader = function(){
   var obj = {tags: "file-reader"};
   
   obj.JSON =
-    function(file){
-      var name = file.name;
-      Reader = new FileReader();
+    function(name, file){
+      var Reader = new FileReader();
       Reader.onload = function(evt){
         wbip.datanew(name, evt.target.result);
       };
@@ -14,14 +13,31 @@ wbip.filereader = function(){
   obj.JSONmult =
     function(files){
       for(var i = 0; i < files.length; i++){
-        obj.JSON(files[i]);
+        // Remove extension to shorten name a bit
+        var name = files[i].name.replace(/\..+?$/, "");
+        obj.JSON(name, files[i]);
       }
+    };
+  
+  obj.CSV =
+    function(name, file){
+      var Reader = new FileReader();
+      Reader.onload = function(evt){
+        var res = evt.target.result;
+        // Split by delimiter
+        
+        // Display to user, for cleaning
+        
+        // Accept data
+        // wbip.datanew(name, );
+      };
+      Reader.readAsText(file);
     };
   
   obj.wbip =
     function(file){
       var name = file.name;
-      Reader = new FileReader();
+      var Reader = new FileReader();
       Reader.onload = function(evt){
         var res = evt.target.result;
         // Extract header info
