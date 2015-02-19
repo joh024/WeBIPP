@@ -23,6 +23,8 @@
     <!-- jQuery-UI -->
     <script src="Libs_External/jQuery-UI/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="Libs_External/jQuery-UI/jquery-ui.min.css">
+    <!-- PapaParse -->
+    <script src="Libs_External/PapaParse/papaparse.min.js"></script>
   <!-- Internal Libraries -->
     <script src="Libs_Internal/WeBIPP_Core.js"></script>
     <link rel="stylesheet" type="text/css" href="Libs_Internal/WeBIPP_Core.css" />
@@ -91,6 +93,10 @@
 
 <div id="read-div" class="invisible">
   <input type="file" onchange="wbip.filereader.JSONmult(this.files)" multiple=true>
+</div>
+
+<div id="readcsv-div" class="invisible">
+  <input type="file" onchange="wbip.filereader.CSVmult(this.files)" multiple=true>
 </div>
 
 <div id="main-div">

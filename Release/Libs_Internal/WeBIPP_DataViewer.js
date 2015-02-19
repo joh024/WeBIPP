@@ -64,7 +64,6 @@ wbip.dataviewer = function(){
             var curIDvar = wbip.getIDvar(this.id);
             if(curIDvar.parent === curIDvar.gparent){
               if(d3.select("#wbip-datatable").empty()){
-                console.log(d3.select(this).text());
                 obj.datadraw(fulldat[d3.select(this).select("text").text()]);
               }
             }
@@ -98,8 +97,13 @@ wbip.dataviewer = function(){
     function(dat){
       // Open a ffw html, and append a table
       var curID = "wbip-datatable";
-      var dim = [400, 600];
+      var dim = [600, 600];
       var transxy = [100, 110];
+      // Compute dim width from dat length
+      // Limited by interface width
+      var names = utils.names(dat);
+      dim[0] = Math.min(120 * (1 + names.length), wbip.layout.dim[0] - 70);
+      
       var ffw = wbip.ffw.new(wbip.vars.svg, curID + "-ffw", dim, transxy);
       var fO = ffw.append("foreignObject")
         .attr("width", dim[0])
@@ -111,11 +115,20 @@ wbip.dataviewer = function(){
           .attr("width", "100%");
       
       // Populate table from data
-      var names = utils.names(dat);
+      var trimval =
+        // trims the value provided to a set number of characters
+        function(val){
+          var maxchar = 26;
+          if(val.length > maxchar){
+            var val = val.substr(0, maxchar - 3) + "...";
+          }
+          return val;
+        };
+      // Header
       var currow = table.append("thead").append("tr");
       currow.selectAll("th").data(["n"].concat(names)).enter()
-        .append("th").html(function(d){return d;});
-      
+        .append("th").html(trimval);
+      // Data
       var nrow = utils.nrow(dat);
       if(utils.isArray(nrow)){return;}
       var tbody = table.append("tbody");
@@ -123,22 +136,29 @@ wbip.dataviewer = function(){
         var curdat = utils.getrow(dat, i);
         var currow = tbody.append("tr");
         currow.selectAll("th").data([i + 1].concat(curdat)).enter()
-          .append("th").html(function(d){return d;});
+          .append("th").html(trimval);
+      }
+      
+      // Resize (height) appropriately
+      var ffwresize = function(){
+        var tablebbox = fO.select("#" + curID + "_wrapper")[0][0].getBoundingClientRect();
+        dim[1] = tablebbox.height + 10;
+        wbip.ffw.dim(ffw, dim);
+        fO.attr("height", dim[1]);
       }
       
       // Call jQuery-DataTable
       $('#' + curID).DataTable({
-        "lengthChange": false,
-        "searching": false,
-        "scrollX": true,
-        "pagingType": "full"
+        lengthChange: false,
+        searching: false,
+        scrollX: true,
+        columnDefs: [{
+         targets: "_all",
+         width: "120px"
+        }],
+        pagingType: "full",
+        drawCallback: ffwresize
       });
-      
-      // Resize appropriately
-      var tablebbox = fO.select("#" + curID + "_wrapper")[0][0].getBoundingClientRect();
-      dim[1] = tablebbox.height + 10;
-      wbip.ffw.dim(ffw, dim);
-      fO.attr("height", dim[1]);
     };
   
   return obj;

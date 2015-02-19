@@ -39,7 +39,7 @@ wbip.mainmenu = function(){
           var smc = [
             {text: "Undo"}, {text: "Resize"},
             {text: "New"}, {text: "Save"}, {text: "Load"},
-            {text: "Read JSON Data"},
+            {text: "Read JSON Data"}, {text: "Read CSV Data"},
             {text: "Re-run Code"},
             {text: "Code-WeBIPP"}, {text: "Code-D3js"},
             {text: "Add Marker"}, {text: "Functionise Actions"}
@@ -73,6 +73,9 @@ wbip.mainmenu = function(){
           break;
         case "Read JSON Data":
           d3.select("#read-div").select("input")[0][0].click();
+          break;
+        case "Read CSV Data":
+          d3.select("#readcsv-div").select("input")[0][0].click();
           break;
         case "Re-run Code":
           wbip.data = {};

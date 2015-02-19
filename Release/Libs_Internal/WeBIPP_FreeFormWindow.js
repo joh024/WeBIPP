@@ -17,7 +17,13 @@ wbip.ffw = function(){
         .attr("id", curID)
         .attr("transform", wbip.utils.translate(transxy))
         .classed("wbip-ffw", true);
-      wbip.utils.dragevt(ffw, ffw, transxy);
+      var boundxy = [
+        5 - dim[0], // xmin
+        wbip.layout.dim[0] - 5, // xmax
+        barh, // ymin
+        wbip.layout.dim[1] // ymax
+      ]
+      wbip.utils.dragevt(ffw, ffw, transxy, boundxy);
       
       if(wbip.frills !== undefined){
         ffw.attr("filter", "url(#wbip-dropshadow)");

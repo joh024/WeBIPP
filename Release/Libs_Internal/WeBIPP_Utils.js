@@ -6,6 +6,20 @@ wbip.utils = function(){
       return Object.prototype.toString.call(obj) === "[object Array]";
     };
   
+  obj.transpose =
+    // Transpose a "matrix" (2d array)
+    // For improper cases of unequal ncol
+    //   ncol of the first row is taken to be definitive
+    //   If ncol is shorter than the def, it's filled with undefined
+    //   If ncol is longer than the def, the excess is discarded
+    function(mat){
+      return mat[0].map(function(x, j){
+        return mat.map(function(y, i){
+          return y[j];
+        })
+      });
+    }
+  
   obj.contains =
     // Check if array contains any/all of
     // the specified values
@@ -34,6 +48,8 @@ wbip.utils = function(){
   obj.names =
     // function for obtaining the equivalent to
     //   "names(vector)" in R
+    // Alternative method: return Object.keys(vec);
+    // Test performance sometime
     function(vec){
       var names = new Array;
       for(var curname in vec){names.push(curname);}
@@ -169,13 +185,19 @@ wbip.utils = function(){
     // Bind a drag event on the d3 selection "selevt"
     // that transforms (or drags) the d3 selection "seldrag"
     // Optionally, specify any initial transform x/y
+    // Optionally, specify bounding values of x/y in the form:
+    //   [xmin, xmax, ymin, ymax]
     // Doesn't work very well if selevt is a child of seldrag
     //   as transforms on seldrag affect the origin
-    function(selevt, seldrag, initxy){
+    function(selevt, seldrag, initxy, boundxy){
       initxy = wbip.defarg(initxy, [0, 0]);
       var dragmove = function(){
-        initxy[0] += d3.event.dx
-        initxy[1] += d3.event.dy
+        initxy[0] += d3.event.dx;
+        initxy[1] += d3.event.dy;
+        if(boundxy !== undefined){
+          initxy[0] = Math.min(Math.max(initxy[0], boundxy[0]), boundxy[1]);
+          initxy[1] = Math.min(Math.max(initxy[1], boundxy[2]), boundxy[3]);
+        }
         seldrag.attr("transform", obj.translate(initxy));
       }
       var drag = d3.behavior.drag()

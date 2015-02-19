@@ -24,14 +24,39 @@ wbip.filereader = function(){
       var Reader = new FileReader();
       Reader.onload = function(evt){
         var res = evt.target.result;
-        // Split by delimiter
+        // Parse using PapaParse
+        var parseraw = Papa.parse(res, {
+          dynamicTyping: true,
+          skipEmptyLines: true
+        });
+        // print the result to console, might have performance penalties
+        console.log("CSV Parse Result");
+        console.log(parseraw);
+        
+        // Convert to JSON format desired by wbip
+        var tdat = wbip.utils.transpose(parseraw.data);
+        var jsobj = tdat.reduce(function(prev, cur){
+          var name = cur.shift();
+          prev[name] = cur;
+          return prev;
+        }, {});
         
         // Display to user, for cleaning
+        // TODO when data processing capabilities added
         
         // Accept data
-        // wbip.datanew(name, );
+        wbip.datanew(name, JSON.stringify(jsobj));
       };
       Reader.readAsText(file);
+    };
+  
+  obj.CSVmult =
+    function(files){
+      for(var i = 0; i < files.length; i++){
+        // Remove extension to shorten name a bit
+        var name = files[i].name.replace(/\..+?$/, "");
+        obj.CSV(name, files[i]);
+      }
     };
   
   obj.wbip =
